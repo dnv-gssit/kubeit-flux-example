@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
   name: tenant
-#  namespace: tenant namespace prod
+  namespace: #TODO: tenant namespace prod
 spec:
   interval: 1m
   ref:

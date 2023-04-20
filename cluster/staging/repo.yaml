@@ -1,8 +1,9 @@
+---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
   name: tenant
-#  namespace: tenant namespace staging
+  namespace: #TODO: tenant namespace
 spec:
   interval: 1m
   ref:
