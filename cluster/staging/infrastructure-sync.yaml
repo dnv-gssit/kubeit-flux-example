@@ -4,6 +4,7 @@ metadata:
   name: infra-sync
   namespace: sops-staging
 spec:
+  serviceAccountName: tenant2-flux-sa
   interval: 1m
   targetNamespace: sops-staging
   sourceRef:
