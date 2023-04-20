@@ -11,3 +11,5 @@ spec:
     name: tenant
   path: infra/prod
   prune: true
+  decryption:
+    provider: sops
