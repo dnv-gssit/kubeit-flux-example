@@ -1,0 +1,7 @@
+creation_rules:
+  - path_regex: .*/prod/.*
+    encrypted_regex: ^(stringData)$
+    azure_keyvault: https://adaz-test-prod.vault.azure.net/keys/sops-key/c86a93b7bcd04057abd2b490434dd55c
+  - path_regex: .*/staging/.*
+    encrypted_regex: ^(stringData)$
+    azure_keyvault: https://adaz-test-staging.vault.azure.net/keys/sops-key/5956ce5c8beb4341b892416237390e09

@@ -1,0 +1,13 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: infra-sync
+  namespace: #TODO: tenant management
+spec:
+  interval: 1m
+  targetNamespace: #TODO: tenant target ns
+  sourceRef:
+    kind: GitRepository
+    name: tenant
+  path: infra/staging
+  prune: true

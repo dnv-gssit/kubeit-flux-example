@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: tenant
+#  namespace: tenant namespace prod
+spec:
+  interval: 1m
+  ref:
+    branch: main
+  url: git@github.com:dnv-gssit/kubeit-flux-example.git
