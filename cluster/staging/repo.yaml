@@ -8,4 +8,4 @@ spec:
   interval: 1m
   ref:
     branch: main
-  url: git@github.com:dnv-gssit/kubeit-flux-example.git
+  url: ssh://git@github.com:dnv-gssit/kubeit-flux-example.git
