@@ -1,7 +1,7 @@
 creation_rules:
   - path_regex: .*/prod/.*
     encrypted_regex: ^(stringData)$
-    azure_keyvault: https://sops-test-prod.vault.azure.net/keys/sops-test-key/27c39f10fe97429a9e0c4ffad4312c43
+    azure_keyvault: https://sops-test-kv.vault.azure.net/keys/sops-test-key/60e20b99212641feac3f44005d06b182
   - path_regex: .*/staging/.*
     encrypted_regex: ^(stringData)$
-    azure_keyvault: https://sops-test-staging.vault.azure.net/keys/sops-test-key/32de3d9a8ab84f6e82062fffcf81390c
+    azure_keyvault: https://sops-test-kv.vault.azure.net/keys/sops-test-key/60e20b99212641feac3f44005d06b182
