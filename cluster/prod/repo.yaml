@@ -6,5 +6,5 @@ metadata:
 spec:
   interval: 1m
   ref:
-    branch: main
+    branch: feature/workload-identity-for-tenant2
   url: https://github.com/dnv-gssit/kubeit-flux-example.git
