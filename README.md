@@ -10,13 +10,13 @@ How to use it?
 
 2. In prod/repo.yaml and staging/repo.yaml change branch to your working branch.
 
-3. In your dev cluster settings (voa-platform-infra repository), change the bootstrap_force_minimal_config flag to false. This ensures the cluster uses the appropriate voa-platform-apps/argocd/env-config/values-dev.yaml file instead of the minimal values file. Update the values-dev.yaml file to point to your new branch, and run the deploy-dev pipeline. This will trigger the deployment of Flux examples (a basic SOPS application should appear in ArgoCD, though it may initially show error events—ignore these until encryption and workload identity are configured).
+3. In your dev cluster settings (voa-platform-infra repository), change the bootstrap_force_minimal_config flag to false. This ensures the cluster uses the appropriate voa-platform-apps/argocd/env-config/values-dev.yaml file instead of the minimal values file. Update the values-dev.yaml file to point to your new branch, and run the deploy-dev pipeline. This will trigger the deployment of Flux examples (a basic SOPS application should appear in ArgoCD, though it may initially show error events—ignore these until encryption and workload identity is configured).
 
-4. Obtain the clientId of your dev cluster's managed identity (e.g., MI_KubeITShared022-DEV-WE_POD_Admin) and paste it in the appropriate section of infra/base/service-account.yaml to enable workload identity for the pods.
+4. Check the clientId of mi-dev-tenant2 managed identity (in [KubeITSharedSVC-DEV-RG-WE](https://portal.azure.com/#@dnv.onmicrosoft.com/resource/subscriptions/e5948a9c-7103-4629-98f8-798fa9a0d9aa/resourceGroups/KubeITSharedSVC-DEV-RG-WE/overview)). If it does not match clientId in infra/base/service-account.yaml, change it to one obtained from KubeITSharedSVC-DEV-RG-WE. Note: Check number of federated credentials under mi-dev-tenant2. Max is set to 20, if necessary remove federated credentials which are no longer used.
 
 5. In the Azure Portal, create an example Key Vault to handle the key for encrypting and decrypting secrets in this example. Inside the Key Vault, generate a new key.
 
-6. After deploying the SOPS examples, a managed identity (e.g., MI_KubeITShared022-DEV-WE_POD_SOPS) should be visible in the cluster's resource group. Grant the Key Vault Administrator role to this managed identity for the newly created Key Vault. This will allow SOPS to decrypt secrets using the key in the Key Vault.
+6. Grant the Key Vault Administrator role to mi-dev-tenant2 managed identity for the newly created Key Vault (PIM may be required). This will allow SOPS to decrypt secrets using the key in the Key Vault.
 
 7. Modify the .sops.yaml file to include the URL of the newly generated key in your Key Vault.
 
